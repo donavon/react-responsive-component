@@ -20,23 +20,24 @@ For older browsers, it falls back to Paul Irish's implementation of `matchMedia`
 All you need to do is wrap your content (React Components or jsx or html...) for the specific screen/device you are trying to target, and set the media query accordingly:
 
 ```javascript
-    import { ResponsiveComponent } from "react-responsive-component";
+    import RenderIf from "react-responsive-component";
     ...
-    <ResponsiveComponent query="only screen and (max-width: 480px)">
+    <RenderIf query="only screen and (max-width: 480px)">
         <HamburgerBtn userId={userId} />
-    </ResponsiveComponent>
+    </RenderIf>
 
-    <ResponsiveComponent query="only screen and (min-width: 480px)">
+    <RenderIf query="only screen and (min-width: 480px)">
         <ProfileDropDown userId={userId} />
-    </ResponsiveComponent>
+    </RenderIf>
 ```
 
 #### Optional props
 
 You can pass a `tag` props to specify the tagname of the responsive component wrapper.
+This helps to alleviate extraneous `<div>` elements.
 
 ```javascript
-    <ResponsiveComponent query="tv" tag="ul">
+    <RenderIf query="tv" tag="ul">
         <li>This feature is not supported on TVs yet :(</li>
-    </ResponsiveComponent>
+    </RenderIf>
 ```
